@@ -1,0 +1,18 @@
+.vt-menu-item{
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0 20px;
+}
+.vt-menu-dark .vt-menu-item 
+{
+    color: #fff;
+}
+.vt-menu-dark .vt-menu-item *{
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+.vt-menu-item-selected {
+    background-color: lightblue;
+}

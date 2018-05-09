@@ -1,0 +1,10 @@
+.vt-layout{
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    width: 100%;
+}
+
+.vt-layout-sider{
+    flex-direction: row;
+}
