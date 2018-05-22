@@ -3,10 +3,12 @@ import React, {Component} from 'react';
 import './menu.css';
 
 export default class Menu extends Component{
+    handleClick(e){
+        
+    }
     render(){
-        const classNames = this.props.theme ? 'vt-menu vt-menu-' + this.props.theme : 'vt-menu';
         return (
-            <ul className={classNames} style={this.props.style}>
+            <ul className="vt-menu" onClick={this.handleClick}>
                 {this.props.children}
             </ul>
         );

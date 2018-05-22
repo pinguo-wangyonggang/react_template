@@ -5,7 +5,7 @@ import './footer.css';
 export default class Footer extends Component{
     render(){
         return (
-            <div className="vt-footer" style={this.props.style}>
+            <div className="vt-footer">
             {this.props.children}
             </div>
         );

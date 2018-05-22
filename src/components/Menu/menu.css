@@ -1,5 +1,6 @@
 .vt-menu{
-    height: 100%;
+    height: 64px;
+    line-height: 64px;
     list-style: none;
     font-family: Monospaced Number,Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
     font-size: 14px;
@@ -7,13 +8,6 @@
     background: #fff;
     padding: 0;
     margin: 0;
-}
-.vt-menu-dark {
-    color: #fff;
-    background: #000;
-}
-
-.vt-menu-horizontal {
-    height: 100%;
-    list-style: none;
+    border-bottom: 1px solid #e8e8e8;
+    box-shadow: none;
 }

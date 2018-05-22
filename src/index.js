@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import RootRouter from "router/RootRouter";
+import App from "components/App";
 
 if (module.hot) {
   module.hot.accept();
@@ -10,7 +10,7 @@ if (module.hot) {
 
 ReactDom.render(
   <Provider store={store}>
-    <RootRouter />
+    <App />
   </Provider>,
   document.getElementById("app")
 );
