@@ -1,45 +1,55 @@
 import React , {Component}from 'react';
-import { BrowserRouter as Router, NavLink as Link } from "react-router-dom";
-
-import Menu from "components/Menu/Menu";
-import MenuItem from "components/MenuItem/MenuItem";
-import Header from "components/Header/Header";
-import Layout from "components/Layout/Layout";
-import Content from "components/Content/Content";
-import Footer from "components/Footer/Footer";
-import Sider from "components/Sider/Sider";
-import RootRouter from "router/RootRouter";
-import './app.css';
+import { HashRouter as Router, NavLink as Link } from "react-router-dom";
+import { Layout, Menu, Icon } from 'antd';
+const { Header, Content, Footer, Sider } = Layout;
+import RootRouter from "router/RootRouter"
+import './app.css'
 
 export default class App extends Component{
-    render(){
+    state = {
+        collapsed: false,
+      };
+      toggle = () => {
+        this.setState({
+          collapsed: !this.state.collapsed,
+        });
+      }
+      render() {
         return (
-            <Router>
-                <Layout>
-                    <Header style={{background:'#fff'}}>
-                        <Menu>
-                            <MenuItem>
-                                <Link exact to="/"> Home </Link>
-                            </MenuItem>
-                            <MenuItem>
-                                <Link to="/page1"> Page </Link>
-                            </MenuItem>
-                            <MenuItem>
-                                <Link to="/counter"> Counter </Link>
-                            </MenuItem>
-                            <MenuItem>
-                                <Link to="/userinfo"> UserInfo </Link>
-                            </MenuItem>
-                        </Menu>
-                    </Header>
-                    <Content>
-                        <RootRouter/>
-                    </Content>
-                    <Footer>
-                        <span>Copyright</span>
-                    </Footer>
-                </Layout> 
-            </Router>
+          <Router>
+          <Layout style={{height:'100vh'}}>
+            <Sider
+              trigger={null}
+              collapsible
+              collapsed={this.state.collapsed}
+            >
+              <div className="logo" />
+              <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+                <Menu.Item key="1">
+                  <Icon type="picture"/><span>Dashboard</span><Link exact to="/"></Link>
+                </Menu.Item>
+                <Menu.Item key="2">
+                <Icon type="user"/><span>用户中心</span><Link to="/usercenter"></Link>
+              </Menu.Item>
+              </Menu>
+            </Sider>
+            <Layout>
+              <Header style={{ background: '#fff', padding: 0 }}>
+                <Icon
+                  className="trigger"
+                  type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+                  onClick={this.toggle}
+                />
+              </Header>
+              <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
+              <RootRouter></RootRouter>
+              </Content>
+              <Footer style={{textAlign:'center'}}>
+                <span>金科 ©2018 Created by 金科</span>
+              </Footer>
+            </Layout>
+          </Layout>
+          </Router>
         );
-    }
+      }
 }
