@@ -6,7 +6,7 @@ const commonConfig = require("./webpack.common.config.js");
 const devConfig = {
     devtool: "inline-source-map",
     entry: {
-        app: ["react-hot-loader/patch", path.join(__dirname, "src/index.js")]
+        app: ["react-hot-loader/patch", path.join(__dirname, "src/index.jsx")]
     },
     output: {
         filename: "[name].[hash].js"

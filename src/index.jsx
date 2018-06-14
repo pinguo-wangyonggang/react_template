@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import App from "components/App";
+import AppLayout from "components/Layout";
+import { HashRouter as Router} from "react-router-dom";
 
 if (module.hot) {
   module.hot.accept();
@@ -10,7 +11,9 @@ if (module.hot) {
 
 ReactDom.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <AppLayout />
+    </Router>
   </Provider>,
   document.getElementById("app")
 );

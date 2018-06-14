@@ -4,7 +4,7 @@ const Webpack = require("webpack");
 
 commonConfig = {
   entry: {
-    app: [path.join(__dirname, "src/index.js")],
+    app: [path.join(__dirname, "src/index.jsx")],
     vender: ["react", "react-router-dom", "redux", "react-dom", "react-redux"]
   },
   output: {
@@ -15,6 +15,11 @@ commonConfig = {
   },
   module: {
     rules: [
+      {
+        test: /\.jsx$/,
+        use: ["babel-loader?cacheDirectory=true"],
+        include: path.join(__dirname, "src")
+      },
       {
         test: /\.js$/,
         use: ["babel-loader?cacheDirectory=true"],
@@ -40,7 +45,8 @@ commonConfig = {
       router: path.join(__dirname, "src/router"),
       actions: path.join(__dirname, "src/redux/actions"),
       reducers: path.join(__dirname, "src/redux/reducers")
-    }
+    },
+    extensions: [".js", ".jsx"]
   },
   plugins: [
     new HtmlWebpackPlugin({
